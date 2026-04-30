@@ -1,25 +1,35 @@
-import { useState } from 'react';
-import { View } from "react-native"
-import { styles } from './style'
-import Button from '../Button'
+import { View, Text } from 'react-native';
+import { styles } from './style';
+import Button from '../Button';
 import ButtonCircle from '../ButtonCircle';
 
-export default function Card() {
+type Props = {
+  teamName: string;
+  score: number;
+  onAdd: () => void;
+  onAddThree: () => void;
+  onRemove: () => void;
+};
 
-    const [timeA, setTimeA] = useState(0)
-    const [timeB, setTimeB] = useState(0)
+export default function Card({ teamName, score, onAdd, onAddThree, onRemove }: Props) {
+  const scoreStr = score.toString().padStart(2, '0');
 
-    function fnAtualizarPlacar(time: string, valor: number) {
-        if (time.toLowerCase() === 'a') {
-            setTimeA(timeA + valor)
-        }
-    }
+  return (
+    <View style={styles.card}>
+      <View style={styles.header}>
+        <Text style={styles.cardIconText}>🃏</Text>
+        <Text style={styles.teamName}>{teamName}</Text>
+      </View>
 
-    return (
-        <View style={styles.card}>
-            <ButtonCircle text='+'/>
-            <Button text='+  Ponto' />
-            <ButtonCircle text='+3'/>
-        </View>
-    )
+      <View style={styles.scoreContainer}>
+        <Text style={styles.score}>{scoreStr}</Text>
+      </View>
+
+      <View style={styles.buttons}>
+        <ButtonCircle text="—" onPress={onRemove} />
+        <Button text="+ Ponto" onPress={onAdd} />
+        <ButtonCircle text="+3" onPress={onAddThree} />
+      </View>
+    </View>
+  );
 }
