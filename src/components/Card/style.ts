@@ -13,11 +13,16 @@ export const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 0,
+    position: 'relative',
   },
   cardIconText: {
-    fontSize: 22,
-    opacity: 0.4,
+    fontSize: 15,
+    color: 'rgba(78, 222, 163, 0.22)',
+    fontWeight: '400',
+    letterSpacing: 0.5,
+    position: 'absolute',
+    left: 0,
   },
   teamName: {
     color: 'rgba(78, 222, 163, 0.65)',
@@ -28,7 +33,7 @@ export const styles = StyleSheet.create({
   scoreContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 32,
+    paddingVertical: 36,
   },
   score: {
     color: '#e8e8e8',

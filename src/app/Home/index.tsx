@@ -31,26 +31,27 @@ export default function Home() {
       <StatusBar barStyle="light-content" backgroundColor="#0a1a0a" />
       <View style={styles.container}>
         <Card
-          teamName="TIME A"
+          teamName="NÓS"
           score={scoreA}
           onAdd={() => handleUpdateA(1)}
           onAddThree={() => handleUpdateA(3)}
           onRemove={() => handleUpdateA(-1)}
+          active={true}
         />
 
         <Card
-          teamName="TIME B"
+          teamName="ELES"
           score={scoreB}
           onAdd={() => handleUpdateB(1)}
           onAddThree={() => handleUpdateB(3)}
           onRemove={() => handleUpdateB(-1)}
+          active={false}
         />
 
         <TouchableOpacity style={styles.resetButton} onPress={handleReset} activeOpacity={0.7}>
           <Text style={styles.resetIcon}>↺</Text>
         </TouchableOpacity>
 
-        <Text style={styles.appTitle}>TRUCO PRO</Text>
       </View>
     </SafeAreaView>
   );
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    gap: 14,
+    gap: 52,
     backgroundColor: '#0a1a0a',
   },
   resetButton: {

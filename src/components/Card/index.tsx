@@ -9,15 +9,15 @@ type Props = {
   onAdd: () => void;
   onAddThree: () => void;
   onRemove: () => void;
+  active?: boolean;
 };
 
-export default function Card({ teamName, score, onAdd, onAddThree, onRemove }: Props) {
+export default function Card({ teamName, score, onAdd, onAddThree, onRemove, active = false }: Props) {
   const scoreStr = score.toString().padStart(2, '0');
 
   return (
     <View style={styles.card}>
       <View style={styles.header}>
-        <Text style={styles.cardIconText}>🃏</Text>
         <Text style={styles.teamName}>{teamName}</Text>
       </View>
 
@@ -27,7 +27,7 @@ export default function Card({ teamName, score, onAdd, onAddThree, onRemove }: P
 
       <View style={styles.buttons}>
         <ButtonCircle text="—" onPress={onRemove} />
-        <Button text="+ Ponto" onPress={onAdd} />
+        <Button text="+ Ponto" onPress={onAdd} active={active} />
         <ButtonCircle text="+3" onPress={onAddThree} />
       </View>
     </View>
